@@ -3,7 +3,7 @@ const express = require('express')
 const dotenv = require('dotenv')
 dotenv.config({path:'./config,env'})
 const mongoose =require('mongoose')
-
+const User = require('./model/user-model')
 const user = express().
 
 //middleware
@@ -19,7 +19,7 @@ mongoose.connect(process.env.DB_URL)
 
 
     //posting user signup to the database
-    app.post('/signup', async(req, res) =>
+    user.post('/signup', async(req, res) =>
 {
     const reqBody = req.body;
     console.log(reqBody, req.body);
@@ -30,20 +30,30 @@ mongoose.connect(process.env.DB_URL)
 })
 
 //posting user login to the database
-app.post("/login", async(req,res) =>
+user.post("/login", async(req,res) =>
 {
 const {email, password} = req.body;
-const user = await user.findOne ({email, password});
-if (!user) 
-return res.status (404).send("user not found");
-return res.status (200).send(user);
+const user = await User.findOne ({email, password});
+if (!user) {
+    return res.status (404).send("user not found")
+    } 
+    return res.status (200).send(user);
 })
 
 
-
-
-
-
+// Delete Account
+user.delete('/id', async (req, res)=>{
+    try {
+      await User.findByIdAndDelete(req.params.id);res.status(200).json({
+        status:'successful deleted',
+       })
+    } catch (err) {
+        res.status(400).json({
+            status: 'fail',
+            message: err
+        })
+    }
+})
 
 
 
