@@ -12,7 +12,10 @@ const port = 4000
 
 //connection to database
 
-
+mongoose.connect(process.env.DB_URL)
+    .then(() => {
+        console.log('successfully connecyed to db')
+    }).catch(err => console.log(err))
 
 
 
