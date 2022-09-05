@@ -1,0 +1,27 @@
+{
+  "name": "august_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "user.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "start":"nodemon user.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tribe-Sydney/August_Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tribe-Sydney/August_Project/issues"
+  },
+  "homepage": "https://github.com/Tribe-Sydney/August_Project#readme",
+  "dependencies": {
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "mongoose": "^6.5.4",
+    "nodemon": "^2.0.19"
+  }
+}
