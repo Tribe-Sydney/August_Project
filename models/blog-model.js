@@ -14,12 +14,22 @@ const blogSchema = new mongoose.Schema({
   author: {
     type: mongoose.Schema.ObjectId,
     ref: "User",
+    required: [true, "A review must belong to an author"],
   },
   createdAt: {
     type: Date,
     default: Date.now(),
   },
 });
+
+blogSchema.pre(/^find/, function (next) {
+  this.populate({
+    path: "author",
+    select: "fullName email phoneNumber",
+  });
+  next();
+});
+
 const Blog = mongoose.model("Blog", blogSchema);
 
 module.exports = Blog;
