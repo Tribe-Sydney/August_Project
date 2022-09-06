@@ -53,6 +53,7 @@ exports.deleteBlog = async (req, res) => {
   }
 };
 
+<<<<<<< HEAD
 exports.createBlog = async (req, res) => {
   try {
     if (!req.body.author) req.body.author = req.params.authorId;
@@ -70,3 +71,35 @@ exports.createBlog = async (req, res) => {
     });
   }
 };
+=======
+//Get All Blogs
+exports.getAll = async (req, res) => {
+  try{
+      const blog = await Blog.find()
+      res.status(200).json({
+          results: blog.length,
+          data: blog
+      })
+  } catch (err) {
+      res.status(400).json({
+          status: 'fail',
+          message: err
+      })
+  }
+}
+
+//Get One Blog
+exports.getOne =  async (req, res) => {
+  try{
+      const blog = await Blog.findById(req.params.id)
+      res.status(200).json({
+          data: blog
+      })
+  } catch (err) {
+      res.status(400).json({
+          status: 'fail',
+          message: err
+      })
+  }
+}
+>>>>>>> 935c427540045b787d2dad118ff3dc635b321ef7
