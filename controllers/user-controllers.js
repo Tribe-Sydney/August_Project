@@ -53,6 +53,13 @@ exports.signIn = async (req, res) => {
 
 exports.deleteUser = async (req, res) => {
   try {
+    const user = await User.findById(req.params.id);
+    if(!user){
+      return res.status(400).json({
+        status: 'fail',
+        message: `There is no user with the id ${req.params.id}`
+      })
+    }
     await User.findByIdAndDelete(req.params.id);
     res.status(204).json({
       status: "successful deleted",
