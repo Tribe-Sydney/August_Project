@@ -102,3 +102,34 @@ exports.updateUser = async (req, res) => {
     });
   }
 };
+
+//Get All Users
+exports.getAll = async (req, res) => {
+  try{
+      const user = await User.find()
+      res.status(200).json({
+          results: user.length,
+          data: user
+      })
+  } catch (err) {
+      res.status(400).json({
+          status: 'fail',
+          message: err
+      })
+  }
+}
+
+//Get One User
+exports.getOne =  async (req, res) => {
+  try{
+      const user = await User.findById(req.params.id)
+      res.status(200).json({
+          data: user
+      })
+  } catch (err) {
+      res.status(400).json({
+          status: 'fail',
+          message: err
+      })
+  }
+}
