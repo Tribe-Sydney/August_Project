@@ -52,3 +52,34 @@ exports.deleteBlog = async (req, res) => {
     });
   }
 };
+
+//Get All Blogs
+exports.getAll = async (req, res) => {
+  try{
+      const blog = await Blog.find()
+      res.status(200).json({
+          results: blog.length,
+          data: blog
+      })
+  } catch (err) {
+      res.status(400).json({
+          status: 'fail',
+          message: err
+      })
+  }
+}
+
+//Get One Blog
+exports.getOne =  async (req, res) => {
+  try{
+      const blog = await Blog.findById(req.params.id)
+      res.status(200).json({
+          data: blog
+      })
+  } catch (err) {
+      res.status(400).json({
+          status: 'fail',
+          message: err
+      })
+  }
+}

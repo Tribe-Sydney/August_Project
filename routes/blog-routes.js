@@ -1,8 +1,9 @@
 const express = require("express");
-const { deleteBlog, updateBlog } = require("../controllers/blog-controllers");
+const { deleteBlog, updateBlog, getAll, getOne,  } = require("../controllers/blog-controllers");
 
 const router = express.Router();
 
-router.route("/:id").delete(deleteBlog).patch(updateBlog);
+router.get('/', getAll);
+router.route("/:id").delete(deleteBlog).patch(updateBlog).get(getOne);
 
 module.exports = router;
