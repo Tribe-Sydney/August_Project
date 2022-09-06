@@ -51,16 +51,54 @@ exports.signIn = async (req, res) => {
   }
 };
 
-
-exports.deleteUser = async (req, res)=>{
+exports.deleteUser = async (req, res) => {
   try {
-    await User.findByIdAndDelete(req.params.id);res.status(204).json({
-      status:'successful deleted',
-     })
+    await User.findByIdAndDelete(req.params.id);
+    res.status(204).json({
+      status: "successful deleted",
+    });
   } catch (err) {
-      res.status(400).json({
-          status: 'fail',
-          message: err
-      })
+    res.status(400).json({
+      status: "fail",
+      message: err,
+    });
   }
-}
+};
+
+exports.updateUser = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user) {
+      return res.status(401).json({
+        status: "fail",
+        message: `There is no user with the id ${req.params.id}`,
+      });
+    }
+    const email = req.body.email === undefined ? user.email : req.body.email;
+    const phoneNumber =
+      req.body.phoneNumber === undefined
+        ? user.phoneNumber
+        : req.body.phoneNumber;
+    const fullName =
+      req.body.fullName === undefined ? user.fullName : req.body.fullName;
+    const password =
+      req.body.password === undefined ? user.password : req.body.password;
+    const update = { email, phoneNumber, fullName, password };
+
+    const updatedUser = await User.findByIdAndUpdate(req.params.id, update, {
+      new: true,
+      runValidators: true,
+    });
+    res.status(200).json({
+      status: "success",
+      data: {
+        updatedUser,
+      },
+    });
+  } catch (error) {
+    res.status(400).json({
+      status: "fail",
+      message: error,
+    });
+  }
+};
