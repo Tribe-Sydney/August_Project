@@ -76,7 +76,7 @@ exports.updateUser = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
     if (!user) {
-      return res.status(401).json({
+      return res.status(400).json({
         status: "fail",
         message: `There is no user with the id ${req.params.id}`,
       });
