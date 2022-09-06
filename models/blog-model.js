@@ -18,3 +18,6 @@ const blogSchema = new mongoose.Schema({
         trim: true,
     }
 })
+const Blog = mongoose.model("User", blogSchema);
+
+module.exports = Blog;
