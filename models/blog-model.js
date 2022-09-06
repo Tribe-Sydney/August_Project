@@ -20,6 +20,6 @@ const blogSchema = new mongoose.Schema({
     default: Date.now(),
   },
 });
-const Blog = mongoose.model("User", blogSchema);
+const Blog = mongoose.model("Blog", blogSchema);
 
 module.exports = Blog;

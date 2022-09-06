@@ -1,8 +1,8 @@
 const express = require("express");
-const {
-   
-  } = require("../controllers/blog-controllers");
-  
-  const router = express.Router();
+const { deleteBlog, updateBlog } = require("../controllers/blog-controllers");
 
-  module.exports = router;
+const router = express.Router();
+
+router.route("/:id").delete(deleteBlog).patch(updateBlog);
+
+module.exports = router;

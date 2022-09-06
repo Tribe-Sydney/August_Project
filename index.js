@@ -1,6 +1,7 @@
 // packages required
 const express = require("express");
 const userRoutes = require("./routes/user-routes");
+const blogRoutes = require("./routes/blog-routes");
 
 const app = express();
 
@@ -9,6 +10,7 @@ app.use(express.json());
 
 // Routes
 app.use("/api/users", userRoutes);
+app.use("/api/blogs", blogRoutes);
 app.all("*", (req, res, next) => {
   res.status(404).json({
     status: "fail",
