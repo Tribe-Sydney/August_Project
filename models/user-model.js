@@ -4,12 +4,12 @@ const validator = require("validator");
 const userSchema = new mongoose.Schema({
   fullName: {
     type: String,
-    required: [true, "Student must have a name"],
+    required: [true, "User must have a name"],
     trim: true,
   },
   phoneNumber: {
     type: String,
-    required: [true, "Student must have a phone-number"],
+    required: [true, "User must have a phone-number"],
   },
   email: {
     type: String,
