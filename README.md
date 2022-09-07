@@ -5,12 +5,11 @@
 # Workflow Application  
 
 Build the endpoints required for a Blogging platform, where users can:
-    -  create account, update their account information, and also delete their account 
+    -  create account, update their account information, and also delete their account. 
     - post blogs, update a blog post and delete a blog post. 
 
 
 # HTTP Methods used in the controllers
-    The task should presents the following HTTP Methods.
 
     POST - Responsible for account creation and blog posting
 
