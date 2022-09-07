@@ -10,7 +10,7 @@ const {
 const router = express.Router();
 
 router.route("/:id").delete(deleteBlog).patch(updateBlog).get(getBlog);
-router.post("/:authorId", createBlog);
+router.post("/:authorId?", createBlog);
 router.get("/", getAllBlogs);
 
 module.exports = router;
