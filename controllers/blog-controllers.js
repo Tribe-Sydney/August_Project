@@ -1,4 +1,6 @@
 const Blog = require("../models/blog-model");
+const User = require("../models/user-model");
+const { findById } = require("../models/user-model");
 
 //User blog  handler
 exports.updateBlog = async (req, res) => {
@@ -56,6 +58,13 @@ exports.deleteBlog = async (req, res) => {
 exports.createBlog = async (req, res) => {
   try {
     if (!req.body.author) req.body.author = req.params.authorId;
+    const user = await User.findById(req.body.author);
+    if (!user) {
+      return res.status(400).json({
+        status: "fail",
+        message: "Author is not a user",
+      });
+    }
     const blog = await Blog.create(req.body);
     res.status(200).json({
       status: "success",
