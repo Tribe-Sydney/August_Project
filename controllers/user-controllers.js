@@ -1,10 +1,18 @@
 const User = require("../models/user-model");
+const bcrypt = require("bcryptjs");
 
 //User signup handler
 exports.signUp = async (req, res) => {
   try {
     const { email, fullName, phoneNumber, password } = req.body;
-    const user = await User.create({ email, fullName, phoneNumber, password });
+    const salt = await bcrypt.genSalt(10);
+    const hash = await bcrypt.hash(password, salt);
+    const user = await User.create({
+      email,
+      fullName,
+      phoneNumber,
+      password: hash,
+    });
 
     res.status(201).json({
       status: "success",
@@ -31,7 +39,8 @@ exports.signIn = async (req, res) => {
       });
     }
     const user = await User.findOne({ email }).select("+password");
-    if (user.password !== password || !user) {
+    const confirmPassword = await bcrypt.compare(password, user.password);
+    if (!confirmPassword || !user) {
       return res.status(401).json({
         status: "fail",
         message: "Invalid email or password",
