@@ -24,9 +24,6 @@ Build the endpoints required for a Blogging platform, where users can: - create 
    The documentation can be found in the link below
    (https://documenter.getpostman.com/view/22690167/VVBS28hu)
 =======
-# Documentation
-
-(https://documenter.getpostman.com/view/22690167/VVBS28hu)
 
 # Project members
 >>>>>>> 4b1eddd983477a79b99039ca177430cf9c861136
