@@ -22,4 +22,20 @@ Build the endpoints required for a Blogging platform, where users can: - create 
 
     The documentation can be found in the link below
 
-    [Documentation](https://documenter.getpostman.com/view/22690167/VVBS28hu)
+   # [Documentation]
+   (https://documenter.getpostman.com/view/22690167/VVBS28hu)
+
+# project members
+    Nnadozie
+    Obi Chukwudi Edwin
+    Edem Emmanuel Gabriel
+    Peter Oluwafemi Agboola
+    Jerry Obi
+    Joshua Olutunde
+    Okpala Julianah Ebunoluwa
+    Okoli Kingsley
+    Olutola Oluruntobi Paul
+    Opadeji Sheriff Akorede
+    Emmanuel Obikunle
+    Samson Nnabuife
+    Obiako Anthony
