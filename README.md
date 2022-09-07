@@ -20,7 +20,7 @@ Build the endpoints required for a Blogging platform, where users can: - create 
 
 # [Documentation]
 
-The documentation can be found in the link below
+The documentation can be found by clicking this link
 (https://documenter.getpostman.com/view/22690167/VVBS28hu)
 
 # Project members
