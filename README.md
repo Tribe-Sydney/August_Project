@@ -18,12 +18,19 @@ Build the endpoints required for a Blogging platform, where users can: - create 
 
     And for all the 3 methods use a single route to handle all the requests differently for the user and blog
 
+<<<<<<< HEAD
 
    # [Documentation]
    The documentation can be found in the link below
    (https://documenter.getpostman.com/view/22690167/VVBS28hu)
+=======
+# Documentation
 
-# project members
+(https://documenter.getpostman.com/view/22690167/VVBS28hu)
+
+# Project members
+>>>>>>> 4b1eddd983477a79b99039ca177430cf9c861136
+
     Nnadozie
     Obi Chukwudi Edwin
     Edem Emmanuel Gabriel
