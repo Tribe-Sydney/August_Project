@@ -28,7 +28,7 @@ Build the endpoints required for a Blogging platform, where users can: - create 
 # Project members
 >>>>>>> 4b1eddd983477a79b99039ca177430cf9c861136
 
-    Nnadozie
+    Nnadozie Anika
     Obi Chukwudi Edwin
     Edem Emmanuel Gabriel
     Peter Oluwafemi Agboola
